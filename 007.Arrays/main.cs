@@ -1,56 +1,46 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication94
+namespace ConsoleApplication95
 {
     class Program
     {
         static void Main(string[] args)
         {
-             // Ask the user to enter a number
-            Console.WriteLine("Please enter a number:");
-            string input = Console.ReadLine(); // Read user input as a string
-            int number = Convert.ToInt32(input); // Convert input to an integer
+            // Ask the user how many fruits they want to enter
+            Console.Write("How many fruits do you want to enter? ");
+            int count = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Numbers from 1 to " + number + ":");
+            // Declare a string array with the specified size
+            string[] fruits = new string[count];
 
-            // Initialize counter variable
-            int i = 1;
-
-            /*
-             * while loop syntax:
-             * while (condition)
-             * {
-             *     // code to repeat
-             * }
-             *
-             * In our case:
-             * - condition: i <= number --> loop continues as long as i is less than or equal to number
-             */
-
-            while (i <= number)
+            // Loop to get fruit names from the user and store them in the array
+            for (int i = 0; i < count; i++)
             {
-                // Check if i is even or odd
-                if (i % 2 == 0)
-                {
-                    Console.WriteLine(i + " is even.");
-                }
-                else
-                {
-                    Console.WriteLine(i + " is odd.");
-                }
-
-                // Increment i by 1
-                i++;
+                Console.Write("Enter fruit #" + (i + 1) + ": ");
+                fruits[i] = Console.ReadLine();
             }
 
-            // Wait for the user to press any key before closing
-            Console.WriteLine("Press any key to exit...");
+            // Print all fruits using a foreach loop
+            Console.WriteLine("\nYou entered these fruits:");
+            foreach (string fruit in fruits)
+            {
+                Console.WriteLine(fruit);
+            }
+
+            // Show the first fruit, if there is at least one
+            if (count > 0)
+            {
+                Console.WriteLine("\nYour first fruit was: " + fruits[0]);
+            }
+
+            // Pause the console so the user can see the output
+            Console.WriteLine("\nPress any key to exit...");
             Console.ReadKey();
-        
         }
     }
 }
+
