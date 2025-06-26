@@ -36,4 +36,3 @@ namespace ConsoleApplication96
         }
     }
 }
-
